@@ -85,7 +85,8 @@ class UniVoice(nn.Module):
     ):
         for i in range(1):
             
-            z1 = torch.randn_like(mel_spec[i], device=input_ids.device)
+            # z1 = torch.randn_like(mel_spec[i], device=input_ids.device)
+            z1 = torch.randn(mel_spec[i].shape[0],target_len[i]).to(input_ids.device)
             # y = input_ids[i]
             mel_gt = mel_spec[i]
             text = text[i]
