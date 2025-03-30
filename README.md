@@ -22,7 +22,7 @@
 
 </div>
 <div align="center">
-  <a href="LICENSE-CODE">
+  <a href="LICENSE">
     <img alt="Code License" src="https://img.shields.io/badge/Code_License-MIT-f5de53?&color=f5de53">
   </a>
 </div>
