@@ -224,7 +224,6 @@ class MonoFormerForCausalLM(LlamaForCausalLM):
 
     def initialize_audio_modules(self, pretrained_path):
         self.config.audio_encoder_path = pretrained_path
-        self.feature_extracter = WhisperFeatureExtractor.from_pretrained('hf_ckpts/whisper-large-v3')
         self.audio_encoder = WhisperModel.from_pretrained(pretrained_path).get_encoder()
         for param in self.audio_encoder.parameters():
             param.requires_grad = False
