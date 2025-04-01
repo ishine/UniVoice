@@ -121,7 +121,7 @@ class MonoFormerModel(LlamaModel):
         causal_mask = self._update_causal_mask(attention_mask, inputs_embeds, cache_position) # for  transformers==4.39.0
 
         if c_embeds_mask is not None:
-            # still causal_mask
+            #  causal+full mask
             mask_length = c_embeds_mask.shape[-1]
             speech_attn_mask = ~torch.logical_and(c_embeds_mask[:, None, None, :].repeat(1, 1, mask_length, 1).eq(1.0), c_embeds_mask[:, None, None, :].repeat(1, 1, mask_length, 1).transpose(2, 3).eq(1.0))
             causal_mask = causal_mask[..., :mask_length, :mask_length] * speech_attn_mask
